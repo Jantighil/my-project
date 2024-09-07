@@ -115,6 +115,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* 
+iframe{
+    width: 950;
+    height: 650;
+  }
+  #HIBHK3RA48{
+    width: 300;
+    height: 650;
+  }  */
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
@@ -591,17 +600,126 @@ img {
 
 /*=============== MEDIA QUERIES ===============*/
 /* For small devices */
-@media screen and (max-width: 340px) {
+@media screen and (min-width: 200px) and (max-width: 250px) {
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
   }
+  iframe{
+    width: 210px;
+    height: 650px;
+  }
+  #HIBHK3RA48{
+    width: 210px;
+    height: 650px;
+  } 
   .section__title {
     font-size: var(--big-font-size);
   }
   .home__img {
+    display: none;
+    /* width: 200px;
+    top: -13rem; */
+  }
+  .home__title {
+    top: -4rem;
+    font-size: var(--bigger-font-size);
+  }
+  .home__data {
+    padding-top: 1rem;
+  }
+  .home__description {
+    font-size: var(--small-font-size);
+  }
+  .specs__img {
     width: 200px;
-    top: -13rem;
+  }
+  .case__container {
+    grid-template-columns: .6fr 1fr;
+  }
+  .case__img {
+    width: 220px;
+    top: -2rem;
+    left: -9rem;
+  }
+  .case__data {
+    padding: 0;
+  }
+  .products__container {
+    grid-template-columns: 142px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 251px) and (max-width: 390px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+  iframe{
+    width: 340px;
+    height: 650px;
+  }
+  #HIBHK3RA48{
+    width: 340px;
+    height: 650px;
+  } 
+  .section__title {
+    font-size: var(--big-font-size);
+  }
+  .home__img {
+    display: none;
+    /* width: 200px;
+    top: -13rem; */
+  }
+  .home__title {
+    top: -4rem;
+    font-size: var(--bigger-font-size);
+  }
+  .home__data {
+    padding-top: 1rem;
+  }
+  .home__description {
+    font-size: var(--small-font-size);
+  }
+  .specs__img {
+    width: 200px;
+  }
+  .case__container {
+    grid-template-columns: .6fr 1fr;
+  }
+  .case__img {
+    width: 220px;
+    top: -2rem;
+    left: -9rem;
+  }
+  .case__data {
+    padding: 0;
+  }
+  .products__container {
+    grid-template-columns: 142px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 391px) and (max-width: 575px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+  iframe{
+    width: 370px;
+    height: 650px;
+  }
+  #HIBHK3RA48{
+    width: 370px;
+    height: 650px;
+  } 
+  .section__title {
+    font-size: var(--big-font-size);
+  }
+  .home__img {
+    display: none;
+    /* width: 200px;
+    top: -13rem; */
   }
   .home__title {
     top: -4rem;
@@ -645,6 +763,14 @@ img {
     top: -7rem;
     left: 0;
   }
+  iframe{
+    width: 370px;
+    height: 650px;
+  }
+  #HIBHK3RA48{
+    width: 370px;
+    height: 650px;
+  } 
   .specs__img {
     position: initial;
   }
@@ -703,6 +829,14 @@ img {
   .nav__toggle, .nav__close {
     display: none;
   }
+  iframe{
+    width: 700px;
+    height: 650px;
+  }
+  #HIBHK3RA48{
+    width: 700px;
+    height: 650px;
+  } 
   .home__container {
     position: relative;
     grid-template-columns: repeat(2, 1fr);
@@ -987,13 +1121,14 @@ hr {
         
                    <!--=============== SPECS ===============-->
     <section class="specs section grid" id="specs">
-      <h2 class="section__title section__title-gradient">Email Classifier</h2>
+      <h2 class="section__title section__title-gradient">Email and URL Checker</h2>
       <div class="specs__container container grid">
           <div class="specs__content grid">
               <h1></h1>
-           <iframe id=HIBHK3RA48 loading="eager" src="https://embed.pickaxeproject.com/axe?id=URL_and_Email_security_Analyzer_8Q1LM&mode=embed_gold&host=beta&theme=custom&opacity=70&font_header=Real+Head+Pro&size_header=32&font_body=Real+Head+Pro&size_body=18&font_labels=Real+Head+Pro&size_labels=16&font_button=Real+Head+Pro&size_button=18&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FDFCFC&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=2&s_to=1&s_r=2" width="950px" height="379px" onMouseOver="this.style.boxShadow='0px 6px 20px 0px rgba(0,0,0,0.15)'; this.style.transform = 'translateY(-2px)'; this.style.transition = 'transform 300ms ease'" onMouseOut="this.style.boxShadow='none'; this.style.transform = 'translateY(0px)';" style="border:1px solid rgba(0, 0, 0, 0.7);transition:.3s;border-radius:4px;padding-left: 5%;" frameBorder="0"></iframe>                     
+              <iframe id=HIBHK3RA48 loading="eager" src="https://embed.pickaxeproject.com/axe?id=URL_and_Email_security_Analyzer_8Q1LM&mode=embed_gold&host=beta&theme=custom&opacity=70&font_header=Real+Head+Pro&size_header=32&font_body=Real+Head+Pro&size_body=18&font_labels=Real+Head+Pro&size_labels=16&font_button=Real+Head+Pro&size_button=18&c_fb=FFFFFF&c_ff=FFFFFF&c_fbd=888888&c_rb=FFFFFF&c_bb=228DD7&c_bt=FDFCFC&c_t=000000&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=2&s_to=1&s_r=2" width="950px" height="379px" onMouseOver="this.style.boxShadow='0px 6px 20px 0px rgba(0,0,0,0.15)'; this.style.transform = 'translateY(-2px)'; this.style.transition = 'transform 300ms ease'" onMouseOut="this.style.boxShadow='none'; this.style.transform = 'translateY(0px)';" style="border:1px solid rgba(0, 0, 0, 0.7);transition:.3s;border-radius:4px;padding-left: 5%;" frameBorder="0"></iframe>                     
   </section>
 
+  
                 <!--=============== DISCOUNT ===============-->
                 <section class="discount section" id="video">
                     <div class="discount__container container grid">
