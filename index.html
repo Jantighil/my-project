@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- <link rel="stylesheet" href="/k.css"> -->
     <html lang="en">
@@ -904,6 +905,15 @@ iframe{
     top: -5rem;
     left: 3.5rem;
   }
+  iframe{
+    width: 950px;
+    height: 379px;
+  }
+  #HIBHK3RA48{
+    width: 950px;
+    height: 379px;
+  } 
+  
   .home__description {
     padding-right: 5rem;
   }
@@ -1112,10 +1122,10 @@ hr {
                 <!--=============== SPONSOR ===============-->
                 <section class="sponsor section">
                     <div class="sponsor__container container grid">
-                        <img src="/static/images/R (12).png" src="{{ url_for('static', filename='images/R (12).png') }}" alt="" class="sponsor__img">
-                        <img style="height: 20%;" src="/static/images/R (13).png" src="{{ url_for('static', filename='images/R (13).png') }}">
-                        <img src="/static/images/6fd83f6c101f85bb417448302daedfb9.png" src="{{ url_for('static', filename='images/6fd83f6c101f85bb417448302daedfb9.png') }}" alt="" class="sponsor__img">
-                        <img src="https://github.com/bedimcode/responsive-landing-page-headphones/blob/main/assets/img/sponsor4.png?raw=true" alt="" class="sponsor__img">
+                        <img  src="/static/images/R (12).png" src="{{ url_for('static', filename='images/R (12).png') }}" alt="" class="sponsor__img">
+                        <img  src="/static/images/pickaxe.png" src="{{ url_for('static', filename='images/pickaxe.png') }}" alt=""  class="sponsor__img">
+                        <img  src="/static/images/6fd83f6c101f85bb417448302daedfb9.png" src="{{ url_for('static', filename='images/6fd83f6c101f85bb417448302daedfb9.png') }}" alt="" class="sponsor__img">
+                        <img  src="https://github.com/bedimcode/responsive-landing-page-headphones/blob/main/assets/img/sponsor4.png?raw=true" alt="" class="sponsor__img">
                     </div>
                 </section>
         
@@ -1171,8 +1181,8 @@ hr {
                 <article class="products__card">
                     <div class="products__content">
                         <a  href="https://phishdone-4.vercel.app/"><img style="padding-top: 10%; width: 100%;" src="/static/images/ckolyN-click-here-button-free-png.png"  src="{{ url_for('static', filename='images/ckolyN-click-here-button-free-png.png') }}" alt="" class="products__img"></a>
-                        <h3 class="products__title">Articles</h3>
-                        <span class="products__price">Articles</span>
+                        <h3 class="products__title">Video</h3>
+                        <span class="products__price">Video</span>
                         <button class="button button--flex products__button">
                             <i><img style="width: 10%;" src="/static/images/cyber.png" src="{{ url_for('static', filename='images/cyber.png') }}" alt=""></i>
                         </button>
@@ -1276,125 +1286,99 @@ hr {
 <!--=============== SCROLL REVEAL ===============-->
 <script src="https://unpkg.com/scrollreveal"></script>
 
-    <script>
-  const API_BASE_URL = 'http://127.0.0.1:5000';
+<script>
+  /*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
 
-async function checkEmail() {
-    const emailContent = document.getElementById('email_content').value.trim();
-    const resultDiv = document.getElementById('result');
-
-    if (emailContent === '') {
-        resultDiv.innerHTML = '<p>Please enter email content.</p>';
-        return;
-    }
-
-    resultDiv.innerHTML = 'Checking...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/check`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ content: emailContent }),
-        });
-        const result = await response.json();
-        displayResult(result);
-    } catch (error) {
-        resultDiv.innerHTML = '<p>Error checking email content. Please try again.</p>';
-        console.error('Error:', error);
-    }
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
 }
 
-async function uploadFile() {
-    const fileInput = document.getElementById('file');
-    const resultDiv = document.getElementById('result');
-
-    if (fileInput.files.length === 0) {
-        resultDiv.innerHTML = '<p>Please select a file to upload.</p>';
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', fileInput.files[0]);
-
-    resultDiv.innerHTML = 'Uploading file...';
-
-    try {
-        const response = await fetch(`${API_BASE_URL}/upload`, {
-            method: 'POST',
-            body: formData,
-        });
-        const result = await response.json();
-        displayResult(result);
-    } catch (error) {
-        resultDiv.innerHTML = '<p>Error uploading file. Please try again.</p>';
-        console.error('Error:', error);
-    }
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    })
 }
 
-function displayResult(result) {
-    const resultDiv = document.getElementById('result');
-    if (result.reasons && result.reasons.length > 0) {
-        resultDiv.innerHTML = `<p>Phishing Alert:</p><ul>${result.reasons.map(reason => `<li>${reason}</li>`).join('')}</ul>`;
-    } else {
-        resultDiv.innerHTML = `<p>No phishing concerns found.</p>`;
-    }
+/*=============== REMOVE MENU MOBILE ===============*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show-menu')
 }
+navLink.forEach(n => n.addEventListener('click', linkAction))
 
-function triggerFileUpload() {
-    document.getElementById('file').click();
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+function scrollHeader(){
+    const header = document.getElementById('header')
+    // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+    if(this.scrollY >= 50) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
 }
+window.addEventListener('scroll', scrollHeader)
 
-document.getElementById('check_email_btn').addEventListener('click', checkEmail);
-document.getElementById('upload_btn').addEventListener('click', uploadFile);
+/*=============== SHOW SCROLL UP ===============*/
+function scrollUp(){
+    const scrollUp = document.getElementById('scroll-up');
+    // When the scroll is higher than 200 viewport height, add the show-scroll class to the a tag with the scroll-top class
+    if(this.scrollY >= 200) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
 
-async function checkURL() {
-            const urlInput = document.getElementById('url').value.trim();
-            const resultDiv = document.getElementById('url_result');
+/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
 
-            if (urlInput === '') {
-                resultDiv.innerHTML = '<p>Please enter a URL.</p>';
-                return;
-            }
+function scrollActive(){
+    const scrollY = window.pageYOffset
 
-            resultDiv.innerHTML = 'Checking...';
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
 
-            try {
-                const response = await fetch(`${API_BASE_URL}/check_url`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({ url: urlInput }),
-                });
-                const result = await response.json();
-                displayURLResult(result);
-            } catch (error) {
-                resultDiv.innerHTML = '<p>Error checking URL. Please try again.</p>';
-                console.error('Error:', error);
-            }
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
+    })
+}
+window.addEventListener('scroll', scrollActive)
 
-        function displayURLResult(result) {
-            const resultDiv = document.getElementById('url_result');
-            if (result.reasons && result.reasons.length > 0) {
-                resultDiv.innerHTML = `<p>Phishing Alert:</p><ul>${result.reasons.map(reason => `<li>${reason}</li>`).join('')}</ul>`;
-            } else {
-                resultDiv.innerHTML = `<p>No phishing concerns found.</p>`;
-            }
-        }
+/*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    // reset: true
+})
 
-    </script>
+sr.reveal(`.home__header, .section__title`,{delay: 600})
+sr.reveal(`.home__footer`,{delay: 700})
+sr.reveal(`.home__img`,{delay: 900, origin: 'top'})
+
+sr.reveal(`.sponsor__img, .products__card, .footer__logo, .footer__content, .footer__copy`,{origin: 'top', interval: 100})
+sr.reveal(`.specs__data, .discount__animate`,{origin: 'left', interval: 100})
+sr.reveal(`.specs__img, .discount__img`,{origin: 'right'})
+sr.reveal(`.case__img`,{origin: 'top'})
+sr.reveal(`.case__data`)
+</script>
 
     <!--=============== SCROLL REVEAL ===============-->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/script.js"></script>
-    <script src="/script1.js"></script>
+    
 
     <!--=============== DARK/LIGHT THEME ===============-->
     <script src="/static/images/1.png"></script>
-    <script src="/script2.js"></script>
 
 </body>
 </html>
